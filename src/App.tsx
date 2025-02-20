@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
+import TestRedux from "./components/TestRedux";
 
 function App() {
-
   return (
     <>
+      <TestRedux />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
