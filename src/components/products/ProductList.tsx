@@ -1,6 +1,7 @@
 import { FC, useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { fetchProducts } from '../../store/slices/productsSlice';
+import ProductCard from './ProductCard';
 
 const ProductList: FC = () => {
     const dispatch = useAppDispatch();
@@ -39,6 +40,9 @@ const ProductList: FC = () => {
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {products.map(product => (
+                <ProductCard key={product.id} product={product} />
+            ))}
         </div>
     );
 };
