@@ -61,7 +61,7 @@ const ProductPage: FC = () => {
     }
 
     return (
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden my-20">
             <div className="md:flex">
                 <div className="md:w-1/2 p-8 flex items-center justify-center bg-gray-100">
                     <img
