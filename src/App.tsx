@@ -1,12 +1,9 @@
-import "./App.css";
-import TestRedux from "./components/TestRedux";
+import { FC } from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
-function App() {
-  return (
-    <>
-      <TestRedux />
-    </>
-  );
-}
+const App: FC = () => {
+  return <RouterProvider router={router} />;
+};
 
 export default App;
