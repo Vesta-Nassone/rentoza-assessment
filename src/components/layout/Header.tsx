@@ -4,21 +4,21 @@ import { useAppSelector } from '../../store/hooks';
 import logo from '../../assets/logo.png';
 
 const Header: FC = () => {
+    // Get the items from the cart state
     const { items } = useAppSelector(state => state.cart);
+    // Calculate the total number of items in the cart
     const cartItemsCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
     return (
-        <header className="fixed w-full bg-white text-white shadow-md">
+        <header className="fixed z-50 w-full bg-white text-white shadow-md">
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+                {/* Link to the home page with the logo */}
                 <Link to="/" className="font-bold text-2xl hover:text-indigo-200 transition-colors">
                     <img src={logo} alt="rentoza-logo" />
                 </Link>
 
                 <nav className="flex items-center">
-                    <Link to="/" className="mr-6 hover:text-indigo-200 transition-colors">
-                        Products
-                    </Link>
-
+                    {/* Link to the cart page */}
                     <Link to="/cart" className="relative group">
                         <div className="p-2 bg-transparent text-black rounded-full hover:bg-gray-200 hover:rounded-full hover:shadow-lg transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -26,6 +26,7 @@ const Header: FC = () => {
                             </svg>
                         </div>
 
+                        {/* Display the number of items in the cart */}
                         {cartItemsCount >= 0 && (
                             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                                 {cartItemsCount}

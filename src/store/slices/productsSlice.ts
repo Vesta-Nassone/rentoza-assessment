@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { fetchAllProducts, fetchProductById } from '../../utils/api';
 import { Product } from '../../types';
 
+// Define the initial state for the products
 interface ProductsState {
     items: Product[];
     selectedProduct: Product | null;
@@ -16,6 +17,7 @@ const initialState: ProductsState = {
     error: null
 };
 
+// Async thunk to fetch all products
 export const fetchProducts = createAsyncThunk(
     'products/fetchAll',
     async () => {
@@ -23,6 +25,7 @@ export const fetchProducts = createAsyncThunk(
     }
 );
 
+// Async thunk to fetch a product by ID
 export const fetchProduct = createAsyncThunk(
     'products/fetchById',
     async (id: number) => {
@@ -30,6 +33,7 @@ export const fetchProduct = createAsyncThunk(
     }
 );
 
+// Create a slice for the products with reducers to handle actions
 const productsSlice = createSlice({
     name: 'products',
     initialState,
