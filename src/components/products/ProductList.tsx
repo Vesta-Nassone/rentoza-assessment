@@ -7,12 +7,14 @@ const ProductList: FC = () => {
     const dispatch = useAppDispatch();
     const { items: products, status, error } = useAppSelector(state => state.products);
 
+    // Fetch the products when the component mounts or the status is idle
     useEffect(() => {
         if (status === 'idle') {
             dispatch(fetchProducts());
         }
     }, [status, dispatch]);
 
+    // Show a loading spinner while the products are being fetched
     if (status === 'loading') {
         return (
             <div className="flex justify-center items-center h-64">
@@ -21,6 +23,7 @@ const ProductList: FC = () => {
         );
     }
 
+    // Show an error message if the products failed to load
     if (status === 'failed') {
         return (
             <div className="flex justify-center items-center h-64">
@@ -38,6 +41,7 @@ const ProductList: FC = () => {
         );
     }
 
+    // Render the list of products
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {products.map(product => (

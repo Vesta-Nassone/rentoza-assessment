@@ -5,24 +5,27 @@ import { fetchProduct } from '../store/slices/productsSlice';
 import { addToCart } from '../store/slices/cartSlice';
 
 const ProductPage: FC = () => {
+    // Get the product ID from the URL parameters
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const { selectedProduct, status, error } = useAppSelector(state => state.products);
-    console.log(selectedProduct, status, error);
 
+    // Fetch the product details when the component mounts or the ID changes
     useEffect(() => {
         if (id) {
             dispatch(fetchProduct(parseInt(id)));
         }
     }, [id, dispatch]);
 
+    // Handle adding the product to the cart
     const handleAddToCart = () => {
         if (selectedProduct) {
             dispatch(addToCart(selectedProduct));
         }
     };
 
+    // Show a loading spinner while the product is being fetched
     if (status === 'loading') {
         return (
             <div className="flex justify-center items-center h-64">
@@ -31,6 +34,7 @@ const ProductPage: FC = () => {
         );
     }
 
+    // Show an error message if the product failed to load
     if (status === 'failed') {
         return (
             <div className="text-center">
@@ -46,6 +50,7 @@ const ProductPage: FC = () => {
         );
     }
 
+    // Show a message if the product is not found
     if (!selectedProduct) {
         return (
             <div className="text-center">
@@ -60,10 +65,12 @@ const ProductPage: FC = () => {
         );
     }
 
+    // Render the product details
     return (
         <div className="bg-white rounded-lg shadow-lg overflow-hidden my-20">
             <div className="md:flex">
                 <div className="md:w-1/2 p-8 flex items-center justify-center bg-gray-100">
+                    {/* Product image */}
                     <img
                         src={selectedProduct.image}
                         alt={selectedProduct.title}
@@ -72,12 +79,15 @@ const ProductPage: FC = () => {
                 </div>
 
                 <div className="md:w-1/2 p-8">
+                    {/* Product category */}
                     <span className="inline-block px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium mb-4">
                         {selectedProduct.category}
                     </span>
 
+                    {/* Product title */}
                     <h1 className="text-3xl font-bold text-gray-800 mb-4">{selectedProduct.title}</h1>
 
+                    {/* Product rating */}
                     <div className="flex items-center mb-6">
                         <div className="flex items-center">
                             {[...Array(5)].map((_, i) => (
@@ -94,13 +104,16 @@ const ProductPage: FC = () => {
                         <span className="text-gray-600 ml-2">({selectedProduct.rating.count} reviews)</span>
                     </div>
 
+                    {/* Product description */}
                     <p className="text-gray-600 mb-8">{selectedProduct.description}</p>
 
+                    {/* Product price and stock status */}
                     <div className="flex items-center justify-between mb-8">
                         <span className="text-3xl font-bold text-indigo-600">R{selectedProduct.price.toFixed(2)}</span>
                         <span className="text-green-600 font-medium">In Stock</span>
                     </div>
 
+                    {/* Action buttons */}
                     <div className="flex space-x-4">
                         <button type="button"
                             onClick={handleAddToCart}
