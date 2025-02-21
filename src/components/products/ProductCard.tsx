@@ -34,7 +34,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                     </p>
                     <div className="flex justify-between items-center mt-3">
                         <span className="text-xl font-bold text-indigo-600">
-                            ${product.price.toFixed(2)}
+                            R{product.price.toFixed(2)}
                         </span>
                         <div className="flex items-center">
                             <span className="text-yellow-500 mr-1">★</span>

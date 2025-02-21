@@ -97,7 +97,7 @@ const ProductPage: FC = () => {
                     <p className="text-gray-600 mb-8">{selectedProduct.description}</p>
 
                     <div className="flex items-center justify-between mb-8">
-                        <span className="text-3xl font-bold text-indigo-600">${selectedProduct.price.toFixed(2)}</span>
+                        <span className="text-3xl font-bold text-indigo-600">R{selectedProduct.price.toFixed(2)}</span>
                         <span className="text-green-600 font-medium">In Stock</span>
                     </div>
 
