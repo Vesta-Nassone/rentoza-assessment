@@ -41,12 +41,12 @@ const CartItem: FC<CartItemProps> = ({ item }) => {
                 <p className="text-gray-500 text-sm mt-1 line-clamp-1">{product.description}</p>
 
                 <div className="mt-2 flex justify-between items-center">
-                    <span className="font-semibold text-indigo-600">${product.price.toFixed(2)}</span>
+                    <span className="font-semibold text-indigo-600">R{product.price.toFixed(2)}</span>
 
                     <div className="flex items-center">
                         <button type="button"
                             onClick={() => handleQuantityChange(quantity - 1)}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-l bg-gray-100 hover:bg-gray-200"
+                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-l bg-gray-100 hover:bg-gray-200 cursor-pointer"
                         >
                             -
                         </button>
@@ -60,14 +60,14 @@ const CartItem: FC<CartItemProps> = ({ item }) => {
                         />
                         <button type="button"
                             onClick={() => handleQuantityChange(quantity + 1)}
-                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-r bg-gray-100 hover:bg-gray-200"
+                            className="w-8 h-8 flex items-center justify-center border border-gray-300 rounded-r bg-gray-100 hover:bg-gray-200 cursor-pointer"
                         >
                             +
                         </button>
 
                         <button type="button"
                             onClick={handleRemove}
-                            className="ml-4 text-red-500 hover:text-red-700"
+                            className="ml-4 text-red-500 hover:text-red-700 cursor-pointer"
                         >
                             Remove
                         </button>
