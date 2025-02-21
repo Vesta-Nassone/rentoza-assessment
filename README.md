@@ -1,50 +1,66 @@
-# React + TypeScript + Vite
+# 🛒 FakeStore - React E-commerce Demo  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive e-commerce storefront built with **React**, **TypeScript**, **Vite**, **Redux Toolkit**, and **Tailwind CSS**. It fetches product data from the Fake Store API and provides a smooth shopping experience.  
 
-Currently, two official plugins are available:
+## 🚀 Live Demo  
+🔗 **[View Demo](https://rentoza-assessment.netlify.app/)**  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+✅ **Product Listings** – Browse products with search and filtering  
+🔍 **Product Details** – View detailed product information  
+🛒 **Cart Functionality** – Add, remove, and manage cart items  
+📱 **Responsive Design** – Optimized for all screen sizes  
+🎨 **Modern UI** – Smooth animations and transitions  
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠️ Tech Stack  
+
+- **React**: UI library
+- **TypeScript**: Type safety
+- **Redux Toolkit**: State management
+- **React Router**: Routing
+- **Tailwind CSS**: Styling
+- **Vite**: Build tool
+
+---
+
+## 📂 Project Structure  
+
+This project follows a **feature-based** architecture for better scalability.  
+
+```
+/api         - API service layer
+/components  - Reusable UI components
+/pages       - Page components
+/router      - Routing configuration
+/store       - Redux store & slices
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+---
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## 🏗️ Setup & Installation  
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+1️⃣ **Clone the repository**  
+```sh
+https://github.com/Vesta-Nassone/rentoza-assessment.git
+cd rentoza-assessment
+```
+
+2️⃣ **Install dependencies**  
+```sh
+npm install
+```
+
+3️⃣ **Run the development server**  
+```sh
+npm run dev
+```
+
+4️⃣ **Build for production**  
+```sh
+npm run build
 ```
