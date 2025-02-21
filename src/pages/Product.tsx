@@ -2,6 +2,8 @@ import { FC, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { fetchProduct } from '../store/slices/productsSlice';
+import { addToCart } from '../store/slices/cartSlice';
+
 const ProductPage: FC = () => {
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
@@ -15,6 +17,11 @@ const ProductPage: FC = () => {
         }
     }, [id, dispatch]);
 
+    const handleAddToCart = () => {
+        if (selectedProduct) {
+            dispatch(addToCart(selectedProduct));
+        }
+    };
 
     if (status === 'loading') {
         return (
@@ -96,6 +103,7 @@ const ProductPage: FC = () => {
 
                     <div className="flex space-x-4">
                         <button type="button"
+                            onClick={handleAddToCart}
                             className="flex-grow py-3 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors flex items-center justify-center"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
