@@ -22,7 +22,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                     <img
                         src={product.image}
                         alt={product.title}
-                        className="max-h-full max-w-full object-contain"
+                        className="max-h-full max-w-full object-contain mix-blend-darken"
                     />
                 </div>
                 <div className="p-4">

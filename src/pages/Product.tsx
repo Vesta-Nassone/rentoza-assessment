@@ -67,7 +67,7 @@ const ProductPage: FC = () => {
                     <img
                         src={selectedProduct.image}
                         alt={selectedProduct.title}
-                        className="max-h-96 max-w-full object-contain"
+                        className="max-h-96 max-w-full object-contain mix-blend-darken"
                     />
                 </div>
 
