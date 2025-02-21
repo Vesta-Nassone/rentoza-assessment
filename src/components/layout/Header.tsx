@@ -8,7 +8,7 @@ const Header: FC = () => {
     const cartItemsCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
     return (
-        <header className="fixed w-full bg-white text-white shadow-md">
+        <header className="fixed z-50 w-full bg-white text-white shadow-md">
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
                 <Link to="/" className="font-bold text-2xl hover:text-indigo-200 transition-colors">
                     <img src={logo} alt="rentoza-logo" />

@@ -16,7 +16,7 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
     };
 
     return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+        <div className="bg-white z-10 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
             <Link to={`/product/${product.id}`}>
                 <div className="h-64 flex items-center justify-center p-4 bg-gray-100">
                     <img
