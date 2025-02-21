@@ -1,19 +1,12 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Product } from "../../types/index";
-import { useAppDispatch } from "../../store/hooks";
-import { addToCart } from "../../store/slices/cartSlice";
 
 interface ProductCardProps {
     product: Product;
 }
 
 const ProductCard: FC<ProductCardProps> = ({ product }) => {
-    const dispatch = useAppDispatch();
-
-    const handleAddToCart = () => {
-        dispatch(addToCart(product));
-    };
 
     return (
         <div className="bg-white z-10 rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
@@ -45,14 +38,6 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                     </div>
                 </div>
             </Link>
-            <div className="px-4 pb-4">
-                <button type="button"
-                    onClick={handleAddToCart}
-                    className="w-full py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
-                >
-                    Add to Cart
-                </button>
-            </div>
         </div>
     );
 };
