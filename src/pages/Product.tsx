@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { fetchProduct } from '../store/slices/productsSlice';
 
-
 const ProductPage: FC = () => {
     const { id } = useParams<{ id: string }>();
     const dispatch = useAppDispatch();
@@ -41,6 +40,19 @@ const ProductPage: FC = () => {
         );
     }
 
+    if (!selectedProduct) {
+        return (
+            <div className="text-center">
+                <h2 className="text-2xl font-semibold text-gray-700 mb-4">Product Not Found</h2>
+                <button type='button'
+                    onClick={() => navigate('/')}
+                    className="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                >
+                    Back to Home
+                </button>
+            </div>
+        );
+    }
 
     return (
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
